@@ -25,14 +25,14 @@ class Window(QMainWindow):
         self.DISPLAY_HEIGHT = 200
         super().__init__(parent=None)
         self.setWindowTitle("QMainWindow")
-        self.setCentralWidget(QLabel("I'm the Central Widget"))
+
         self.setFixedSize(self.WINDOW_SIZE, self.WINDOW_SIZE)
         self.generalLayout = QVBoxLayout()
         centralWidget = QWidget(self)
         centralWidget.setLayout(self.generalLayout)
         self.setCentralWidget(centralWidget)
+        # self.setCentralWidget(QLabel("I'm the Central Widget"))
         Window._createDisplay(self)
-
         menus.createMenu(self)
         toolbars.createToolBar(self)
         status_bar.createStatusBar(self)
