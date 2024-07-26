@@ -1,0 +1,10 @@
+{
+  "shiv_app_01": {
+    "redirect_uri": "https://www.google.com/",
+    "App ID" : "4JINAOA45E-100",
+    "Secret ID" : "ZCVDL5OW6X",
+    "grant_type": "authorization_code",
+    "response_type": "code",
+    "state": "sample"
+  }
+}
