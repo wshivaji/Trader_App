@@ -125,6 +125,6 @@ class user_credentials:
         except Exception as ex:
             print(ex.args)
 
-#user_credentials().set_redirect_uri("https://www.google.com/")
+# user_credentials().set_redirect_uri("https://www.google.com/")
 # print(user_credentials().get_redirect_uri())
 # print(user_credentials().get_response_type())
