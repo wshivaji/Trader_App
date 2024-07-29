@@ -40,19 +40,16 @@ class data_web_socket:
     def onerror(self, message):
         """
         Callback function to handle WebSocket errors.
-
         Parameters:
             message (dict): The error message received from the WebSocket.
-
-
         """
         print("Error:", message)
+
 
     def onclose(self, message):
         """
         Callback function to handle WebSocket connection close events.
         """
-        # self.fyers.unsubscribe()
         print("Connection closed:", message)
 
     def onopen(self, symbols=['NSE:SBIN-EQ', 'NSE:ADANIENT-EQ'], data_type="symbolData"):
@@ -71,5 +68,5 @@ class data_web_socket:
         # Keep the socket running to receive real-time data
         self.fyers.keep_running()
 
-# data_web_socket().fetch_live_data_with_websocket()
+data_web_socket().fetch_live_data_with_websocket()
 
