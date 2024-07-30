@@ -68,10 +68,8 @@ class order_websocket:
 
         Parameters:
             message (dict): The error message received from the WebSocket.
-
-
         """
-        print("Error:", message)
+        print("Error:", message, '\n', type(message))
 
     def onclose(self, message):
         """
@@ -99,5 +97,5 @@ class order_websocket:
 
 
 # Establish a connection to the Fyers WebSocket
-# order_websocket().fyers.connect()
+order_websocket().fyers.connect()
 

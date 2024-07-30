@@ -52,12 +52,14 @@ class data_web_socket:
         """
         print("Connection closed:", message)
 
-    def onopen(self, symbols=['NSE:SBIN-EQ', 'NSE:ADANIENT-EQ'], data_type="symbolData"):
+    def onopen(self, symbols=None, data_type="symbolData"):
         """
         Callback function to subscribe to data type and symbols upon WebSocket connection.
 
         """
         # Specify the data type and symbols you want to subscribe to
+        if symbols is None:
+            symbols = ['NSE:SBIN-EQ', 'NSE:ADANIENT-EQ']
         data_type = data_type
         # data_type = "DepthUpdate"/"symbolData"
 
