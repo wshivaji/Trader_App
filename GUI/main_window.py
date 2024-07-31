@@ -27,20 +27,19 @@ class Window(QMainWindow):
         self.setWindowTitle("QMainWindow")
 
         self.setFixedSize(self.WINDOW_SIZE, self.WINDOW_SIZE)
-        self.generalLayout = QVBoxLayout()
-        centralWidget = QWidget(self)
-        centralWidget.setLayout(self.generalLayout)
-        self.setCentralWidget(centralWidget)
+        # self.generalLayout = QVBoxLayout()
+        # centralWidget = QWidget(self)
+        # centralWidget.setLayout(self.generalLayout)
+        # self.setCentralWidget(centralWidget)
         # self.setCentralWidget(QLabel("I'm the Central Widget"))
         Window._createDisplay(self)
         menus.createMenu(self)
         toolbars.createToolBar(self)
         status_bar.createStatusBar(self)
 
-
     def _createDisplay(self):
         self.display = QLineEdit()
         self.display.setFixedHeight(self.DISPLAY_HEIGHT)
         self.display.setAlignment(Qt.AlignmentFlag.AlignRight)
         self.display.setReadOnly(True)
-        self.generalLayout.addWidget(self.display)
+        # self.generalLayout.addWidget(self.display)
