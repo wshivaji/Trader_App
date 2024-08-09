@@ -1,4 +1,5 @@
 from fyers_apiv3.FyersWebsocket import data_ws
+import pandas as pd
 from user_credentials import user_credentials
 
 
@@ -35,7 +36,13 @@ class data_web_socket:
             message (dict): The received message from the WebSocket.
 
         """
-        print("Response:", message)
+        print("Response:", message.keys())
+        print("response: ", message)
+        # print("Type: ", type(message))
+        # df = pd.DataFrame(message, columns=[x for x in message.keys().])
+        # print(df)
+
+
 
     def onerror(self, message):
         """
@@ -52,23 +59,37 @@ class data_web_socket:
         """
         print("Connection closed:", message)
 
+    def custom_message(message):
+        print(f"Custom:{message}")
+
+
+
     def onopen(self, symbols=None, data_type="symbolData"):
         """
         Callback function to subscribe to data type and symbols upon WebSocket connection.
 
         """
+
+
         # Specify the data type and symbols you want to subscribe to
         if symbols is None:
             symbols = ['NSE:SBIN-EQ', 'NSE:ADANIENT-EQ']
+            # symbols = ['NSE:SBIN-EQ']
         data_type = data_type
         # data_type = "DepthUpdate"/"symbolData"
 
         # Subscribe to the specified symbols and data type
         symbols = symbols
-        self.fyers.subscribe(symbols=symbols, data_type=data_type)
+        print(symbols)
+        print(data_type)
+
 
         # Keep the socket running to receive real-time data
         self.fyers.keep_running()
+        # self.fyers.subscribe(symbols=['NSE:RELIANCE-EQ'])
+        self.fyers.subscribe(symbols=symbols)
+
+
 
 data_web_socket().fetch_live_data_with_websocket()
 
